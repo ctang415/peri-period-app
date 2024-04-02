@@ -7,3 +7,6 @@ class DateForm(FlaskForm):
     symptoms = TextAreaField('Symptoms', validators=[Length(min=0, max=140)], render_kw={"placeholder": "Flow, pain, fatigue, etc."})
     notes = TextAreaField('Extra notes', validators=[Length(min=0, max=140)], render_kw={"placeholder": "Everything else"})
     submit = SubmitField('Submit')
+
+class DeleteForm(FlaskForm):
+    delete = SubmitField('Delete')

@@ -20,6 +20,14 @@
 
 {{ form.submit() }}
 </form>
+
+{% if form2 %}
+<form action="" id="delete" method="post">
+    {{ form2.hidden_tag() }}
+{{ form2.delete() }}
+</form>
+{% endif %}
+
 {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>

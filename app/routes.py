@@ -1,6 +1,6 @@
 from app import app, db
 from flask import render_template, request, flash, redirect
-from forms import DateForm
+from forms import DateForm, DeleteForm
 from models import Note
 from datetime import datetime, date
 import sqlalchemy as sa
@@ -30,18 +30,24 @@ def date(date):
     form = DateForm()
     note = db.session.scalar(sa.select(Note).where(Note.date.like(f'{date}%')))
     if note is not None:
+        form2 = DeleteForm()
         if request.method == "GET":
             form.title.data = note.title
             form.symptoms.data = note.symptoms
             form.notes.data = note.notes
         elif form.validate_on_submit():
-            #n = db.session.scalar(sa.select(Note).where(Note.date.like(f'{date}%')))
             note.title = form.title.data 
             note.symptoms = form.symptoms.data 
             note.notes =  form.notes.data
             db.session.commit()
             flash('Notes updated!')
             return redirect(f'/date/{date}')
+        elif form2.validate_on_submit():
+            db.session.delete(note)
+            db.session.commit()
+            flash('Note deleted!')
+            return redirect(f'/date/{date}')
+        return render_template('date.html', date=date, form=form, form2=form2)
     else:
         if form.validate_on_submit():
             note = Note(title=form.title.data, date=datetime.strptime(date, '%Y-%m-%d'), symptoms=form.symptoms.data, notes=form.notes.data)
@@ -49,4 +55,4 @@ def date(date):
             db.session.commit()
             flash('Notes added!')
             return redirect(f'/date/{date}')
-    return render_template('date.html', date=date, form=form)
+        return render_template('date.html', date=date, form=form)
