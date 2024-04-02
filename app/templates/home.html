@@ -22,10 +22,9 @@
                 },
                 {% endfor %}
             ],
-            /*dateClick: function(info) {
-                //alert(info.date)
-                redirect('/date')
-            }*/
+            dateClick: function(info) {
+                window.location.href= `/date/${info.dateStr}`
+            }
           });
           calendar.render();
         });

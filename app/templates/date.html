@@ -1,1 +1,33 @@
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    {{ form.title.label }}:
+    {{ form.title(size=32) }}
+    {% for error in form.title.errors %}
+    <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+
+{{ form.symptoms.label }}:
+{{ form.symptoms(cols=10, rows=5 )}}
+{% for error in form.symptoms.errors %}
+<span style="color: red;">[{{ error }}]</span>
+{% endfor %}
+
+{{ form.notes.label }}:
+{{ form.notes(cols=10, rows=5 )}}
+{% for error in form.notes.errors %}
+<span style="color: red;">[{{ error }}]</span>
+{% endfor %}
+
+{{ form.submit() }}
+</form>
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
 <a href="{{ url_for('home') }}">Back to calendar</a>
