@@ -21,8 +21,10 @@ events = [
 @app.route('/')
 @app.route('/home')
 def home():
-    # query = sa.select(Note).where(Note.date.like())
-    # events = db.session.scalars(query).all()
+    current = datetime.today().strftime("%Y-%m")
+    query = sa.select(Note).where(Note.date.like(f'{current}%'))
+    items = db.session.scalars(query).all()
+    events = [ {"todo": item.title, "date": datetime.strftime(item.date, '%Y-%m-%d'), "url": f'/date/{item.date}'} for item in items ]
     return render_template('home.html', title="Home", events=events)
 
 @app.route('/date/<date>', methods=['GET', 'POST'])

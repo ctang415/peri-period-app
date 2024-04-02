@@ -18,7 +18,8 @@
                 {
                     title: '{{event.todo}}',
                     start: '{{event.date}}',
-                    url: '{{event.url}}'
+                    url: '{{event.url}}',
+                    time: false
                 },
                 {% endfor %}
             ],
@@ -27,6 +28,9 @@
             }
           });
           calendar.render();
+        function getEvents() {
+        console.log(calendar.getEvents());
+      }
         });
       </script>
 </body>
