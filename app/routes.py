@@ -5,27 +5,12 @@ from models import Note
 from datetime import datetime, date
 import sqlalchemy as sa
 
-events = [
-    {
-        'todo': 'tutorial',
-        'date': '2024-03-21',
-        'url': '/date/2024-03-21'
-    },
-    {
-        'todo': 'hi',
-        'date': '2024-04-01',
-        'url': '/date/2024-04-01'
-    }
-]
-
-@app.route('/')
 @app.route('/home')
 def home():
-    current = datetime.today().strftime("%Y-%m")
-    query = sa.select(Note).where(Note.date.like(f'{current}%'))
+    query = sa.select(Note)
     items = db.session.scalars(query).all()
-    events = [ {"todo": item.title, "date": datetime.strftime(item.date, '%Y-%m-%d'), "url": f'/date/{item.date}'} for item in items ]
-    return render_template('home.html', title="Home", events=events)
+    events = [ {"todo": item.title, "date": item.date, "url": f'/date/{datetime.strftime(item.date, "%Y-%m-%d")}'} for item in items ]
+    return render_template('home.html', title="Peri", events=events)
 
 @app.route('/date/<date>', methods=['GET', 'POST'])
 def date(date):
@@ -58,3 +43,7 @@ def date(date):
             flash('Notes added!')
             return redirect(f'/date/{date}')
         return render_template('date.html', date=date, form=form)
+
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'), 404
