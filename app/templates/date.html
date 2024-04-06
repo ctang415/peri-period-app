@@ -1,34 +1,16 @@
-<form action="" method="post">
-    {{ form.hidden_tag() }}
-    {{ form.title.label }}:
-    {{ form.title(size=32) }}
-    {% for error in form.title.errors %}
-    <span style="color: red;">[{{ error }}]</span>
-    {% endfor %}
+{% extends "home.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
 
-{{ form.symptoms.label }}:
-{{ form.symptoms(cols=10, rows=5 )}}
-{% for error in form.symptoms.errors %}
-<span style="color: red;">[{{ error }}]</span>
-{% endfor %}
+{% block content %}
+    <div class="text-center">
+    <h1>{{ date }}</h1>
+    {{wtf.quick_form(form)}}
+    
+    {% if form2 %}
+        {{ wtf.quick_form(form2) }}
+    {% endif %}
 
-{{ form.notes.label }}:
-{{ form.notes(cols=10, rows=5 )}}
-{% for error in form.notes.errors %}
-<span style="color: red;">[{{ error }}]</span>
-{% endfor %}
-
-{{ form.submit() }}
-</form>
-
-{% if form2 %}
-<form action="" id="delete" method="post">
-    {{ form2.hidden_tag() }}
-{{ form2.delete() }}
-</form>
-{% endif %}
-
-{% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
             {% for message in messages %}
@@ -36,6 +18,7 @@
             {% endfor %}
         </ul>
         {% endif %}
-        {% endwith %}
-
-<a href="{{ url_for('home') }}">Back to calendar</a>
+    {% endwith %}
+    <a href="{{ url_for('home') }}">Back to calendar</a>
+    </div>
+{% endblock %}

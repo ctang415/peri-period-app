@@ -34,7 +34,7 @@ def date(date):
             db.session.commit()
             flash('Note deleted!')
             return redirect(f'/date/{date}')
-        return render_template('date.html', date=date, form=form, form2=form2)
+        return render_template('date.html', date=date, title=date, form=form, form2=form2)
     else:
         if form.validate_on_submit():
             note = Note(title=form.title.data, date=datetime.strptime(date, '%Y-%m-%d'), symptoms=form.symptoms.data, notes=form.notes.data)
