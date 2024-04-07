@@ -2,8 +2,12 @@
 {% import "bootstrap_wtf.html" as wtf %}
 
 {% block content %}
-    <div class="text-center">
-    <h1>{{ date }}</h1>
+<body class="d-flex flex-column align-items-center p-3 bg-light text-dark">
+    <div class="text-center border border-info w-50 shadow mb-5 rounded">
+    <div class="bg-info text-light p-3">
+        <h1>{{ date }}</h1>
+    </div>
+    <div class="bg-white pb-3">
     {{wtf.quick_form(form)}}
     
     {% if form2 %}
@@ -21,4 +25,6 @@
     {% endwith %}
     <a href="{{ url_for('home') }}">Back to calendar</a>
     </div>
+    </div>
+</body>
 {% endblock %}

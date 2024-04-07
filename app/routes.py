@@ -1,9 +1,10 @@
 from app import app, db
-from flask import render_template, request, flash, redirect
+from flask import render_template, request, flash, redirect, url_for
 from forms import DateForm, DeleteForm
 from models import Note
 from datetime import datetime, date
 import sqlalchemy as sa
+import csv
 
 @app.route('/home')
 def home():
@@ -47,3 +48,18 @@ def date(date):
 @app.errorhandler(404)
 def not_found_error(error):
     return render_template('404.html'), 404
+
+@app.route('/export')
+def export():
+    query = sa.select(Note)
+    items = db.session.scalars(query).all()
+    events = [ {"todo": item.title, "date": item.date, "url": f'/date/{datetime.strftime(item.date, "%Y-%m-%d")}'} for item in items ]
+    with open("peridata.csv", "w") as file:
+        writer = csv.DictWriter(file, fieldnames=["Date", "Title", "Symptoms", "Notes"])
+        writer.writeheader()
+        for item in items:
+            writer.writerow({"Date": datetime.strftime(item.date, '%Y-%m-%d'), "Title": item.title, "Symptoms": item.symptoms, "Notes": item.notes})
+    file.close()
+    flash('Data exported!')
+    return redirect(url_for('home'))
+    return render_template('date.html', title="Peri", events=events)

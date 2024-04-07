@@ -11,8 +11,8 @@
     <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
     <title>{{ title }} </title>
 </head>
-<body>
-    {% block content %}
+{% block content %}
+<body class="p-2 bg-light text-dark shadow m-2 rounded">
     <div id='calendar'></div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -34,30 +34,36 @@
                     }
                 },
                 exportButton : {
-                    text: 'export',
-                    click : function() {
-
+                    text: 'EXP',
+                    click : function () {
+                        window.location.href= '/export'
                     }
                 },
                 toggleMode: {
-                    text: 'mode',
+                    text: 'ON',
                     click: function () {
+                        
                     }
                 }
             },
             headerToolbar: {
                 left: "customLeft",
-                center: "title toggleMode exportButton",
+                center: "title",
                 right: "customRight"
+            },
+            footerToolbar: {
+                left: '',
+                center: 'toggleMode exportButton',
+                right: ''
             },
             buttonText: {
                 today: "Today"
             },
-            height: 97 + "vh",
+            contentHeight: 80 + "vh",
             displayEventTime: false,
             fixedWeekCount: false,
             eventDisplay:'block',
-            eventColor: '#378006',
+            eventColor: '#17a2b8',
             events: [
                 {% for event in events %}
                 {
@@ -72,6 +78,22 @@
                 for (var i=0; i<elements.length; i++){
                 elements[i].style.padding = 0.5 + "em";
             }
+            let prev = document.querySelector('.fc-customRight-button')
+            let next = document.querySelector('.fc-customLeft-button')
+            let mode = document.querySelector('.fc-toggleMode-button')
+            let toggle = document.querySelector('.fc-exportButton-button')
+            let header = document.querySelector('.fc-toolbar-title')
+            header.style.fontSize = 2.5 + "em"
+            prev.style.backgroundColor = "#dd571c"
+            prev.style.padding = 0.8 + "em"
+            next.style.padding = 0.8 + "em"
+            prev.style.borderColor = "#dd571c"
+            next.style.backgroundColor = "#dd571c"
+            next.style.borderColor = "#dd571c"
+            toggle.style.backgroundColor = "#dd571c"
+            toggle.style.borderColor = "#dd571c"
+            mode.style.backgroundColor = "#dd571c"
+            mode.style.borderColor = "#dd571c"
             },
             dateClick: function(info) {
                 window.location.href= `/date/${info.dateStr}`
@@ -80,6 +102,6 @@
             calendar.render();
         });
       </script>
-      {% endblock %}
 </body>
+{% endblock %}
 </html>
