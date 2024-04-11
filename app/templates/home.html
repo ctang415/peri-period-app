@@ -12,9 +12,17 @@
     <title>{{ title }} </title>
 </head>
 {% block content %}
-<body class="p-2 bg-light text-dark shadow m-2 rounded">
+<body>
+    <div class="p-3">
     <div id='calendar'></div>
+    </div>
     <script>
+        if(localStorage.getItem('toggle') == null) {
+            localStorage.setItem('toggle', JSON.stringify("p-2 bg-light text-dark"))
+            document.querySelector('body').className = JSON.parse(localStorage.getItem('toggle'))
+        } else {
+            document.querySelector('body').className = JSON.parse(localStorage.getItem('toggle'))    
+        }
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -42,7 +50,16 @@
                 toggleMode: {
                     text: 'ON',
                     click: function () {
-                        
+                        let toggle2 = document.querySelector('body')
+                        if (JSON.parse(localStorage.getItem('toggle')) == "p-2 bg-dark text-light") {
+                        let toggle = "p-2 bg-light text-dark"
+                        localStorage.setItem('toggle', JSON.stringify(toggle))
+                        toggle2.className = JSON.parse(localStorage.getItem('toggle'))
+                        } else {
+                            let toggle = "p-2 bg-dark text-light"
+                            localStorage.setItem('toggle', JSON.stringify(toggle))
+                            toggle2.className = JSON.parse(localStorage.getItem('toggle'))
+                        }
                     }
                 }
             },

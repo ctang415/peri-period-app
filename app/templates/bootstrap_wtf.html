@@ -29,7 +29,7 @@
 {% endmacro %}
 
 {% macro quick_form(form, action="", method="post", id="", novalidate=False) %}
-    <form class="d-flex flex-column align-items-center justify-content-center bg-white pt-2 px-3" novalidate
+    <form class="d-flex flex-column align-items-center justify-content-center pt-2 px-3" novalidate
         {%- if action != None %} action="{{ action }}"{% endif -%}
         {%- if method %} method="{{ method }}"{% endif %}
         {%- if id %} id="{{ id }}"{% endif -%}

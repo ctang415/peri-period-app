@@ -11,7 +11,8 @@ def home():
     query = sa.select(Note)
     items = db.session.scalars(query).all()
     events = [ {"todo": item.title, "date": item.date, "url": f'/date/{datetime.strftime(item.date, "%Y-%m-%d")}'} for item in items ]
-    return render_template('home.html', title="Peri", events=events)
+    toggle = "p-2 bg-light text-dark shadow m-2 rounded"
+    return render_template('home.html', title="Peri", events=events, toggle=toggle)
 
 @app.route('/date/<date>', methods=['GET', 'POST'])
 def date(date):
@@ -60,6 +61,5 @@ def export():
         for item in items:
             writer.writerow({"Date": datetime.strftime(item.date, '%Y-%m-%d'), "Title": item.title, "Symptoms": item.symptoms, "Notes": item.notes})
     file.close()
-    flash('Data exported!')
     return redirect(url_for('home'))
     return render_template('date.html', title="Peri", events=events)

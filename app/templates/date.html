@@ -2,13 +2,13 @@
 {% import "bootstrap_wtf.html" as wtf %}
 
 {% block content %}
-<body class="d-flex flex-column align-items-center p-3 bg-light text-dark">
-    <div class="text-center border border-info w-50 shadow mb-5 rounded">
-    <div class="bg-info text-light p-3">
+<body>
+    <div id="body">
+    <div class="p3">
         <h1>{{ date }}</h1>
     </div>
-    <div class="bg-white pb-3">
-    {{wtf.quick_form(form)}}
+    <div>
+    {{wtf.quick_form(form, id="main")}}
     
     {% if form2 %}
         {{ wtf.quick_form(form2) }}
@@ -26,5 +26,17 @@
     <a href="{{ url_for('home') }}">Back to calendar</a>
     </div>
     </div>
+
+    <script>
+        let stored = JSON.parse(localStorage.getItem('toggle'))
+        stored += " d-flex flex-column align-items-center pt-5"
+        document.querySelector('body').className = stored
+        if (stored == "p-2 bg-light text-dark d-flex flex-column align-items-center pt-5") {
+            document.getElementById('body').setAttribute("class", "bg-white text-center border w-50 pb-3 pt-3 rounded-lg shadow-lg")
+        } else {
+            document.getElementById('body').setAttribute("class", "bg-black text-center border w-50 pb-3 pt-3 rounded-lg shadow-lg")
+            document.querySelector('a').setAttribute("class", "text-light")
+        }
+        </script>
 </body>
 {% endblock %}
