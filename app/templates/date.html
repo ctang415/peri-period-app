@@ -8,7 +8,7 @@
         <h1>{{ date }}</h1>
     </div>
     <div>
-    {{wtf.quick_form(form, id="main")}}
+    {{ wtf.quick_form(form, id="main") }}
     
     {% if form2 %}
         {{ wtf.quick_form(form2) }}
@@ -26,7 +26,6 @@
     <a href="{{ url_for('home') }}">Back to calendar</a>
     </div>
     </div>
-
     <script>
         let stored = JSON.parse(localStorage.getItem('toggle'))
         stored += " d-flex flex-column align-items-center pt-5"

@@ -12,7 +12,11 @@
     {%- endfor %}
   </div>
   {%- elif field.type == 'SubmitField' %}
-       {{ field(class='btn btn-info mb-3') }}
+    {%- if field.name == 'delete' %}
+      {{ field(class='btn btn-danger mb-3') }}
+    {%- else %}
+      {{ field(class='btn btn-info mb-3') }}
+    {%- endif %}
    {%- else %}
   <div class="mb-3">
     {{ field.label(class='form-label') }}:
