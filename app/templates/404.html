@@ -9,11 +9,11 @@
         </a>
     </p>
     <script>
-        let stored = JSON.parse(localStorage.getItem('toggle'))
-        stored += " d-flex flex-column align-items-center pt-5"
-        document.querySelector('body').className = stored
+        let stored = JSON.parse(localStorage.getItem('toggle'));
+        stored += " d-flex flex-column align-items-center pt-5";
+        document.querySelector('body').className = stored;
         if (stored !== "p-2 bg-light text-dark d-flex flex-column align-items-center pt-5") {
-            document.querySelector('a').setAttribute("class", "text-light")
+            document.querySelector('a').setAttribute("class", "text-light");
         }
     </script>    
 </body>

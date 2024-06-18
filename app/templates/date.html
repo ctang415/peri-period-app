@@ -27,14 +27,14 @@
     </div>
     </div>
     <script>
-        let stored = JSON.parse(localStorage.getItem('toggle'))
-        stored += " d-flex flex-column align-items-center pt-5"
-        document.querySelector('body').className = stored
+        let stored = JSON.parse(localStorage.getItem('toggle'));
+        stored += " d-flex flex-column align-items-center pt-5";
+        document.querySelector('body').className = stored;
         if (stored == "p-2 bg-light text-dark d-flex flex-column align-items-center pt-5") {
-            document.getElementById('body').setAttribute("class", "bg-white text-center border w-50 pb-3 pt-3 rounded-lg shadow-lg")
+            document.getElementById('body').setAttribute("class", "bg-white text-center border w-50 pb-3 pt-3 rounded-lg shadow-lg");
         } else {
-            document.getElementById('body').setAttribute("class", "bg-black text-center border w-50 pb-3 pt-3 rounded-lg shadow-lg")
-            document.querySelector('a').setAttribute("class", "text-light")
+            document.getElementById('body').setAttribute("class", "bg-black text-center border w-50 pb-3 pt-3 rounded-lg shadow-lg");
+            document.querySelector('a').setAttribute("class", "text-light");
         }
         </script>
 </body>

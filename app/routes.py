@@ -2,10 +2,11 @@ from app import app, db
 from flask import render_template, request, flash, redirect, url_for
 from forms import DateForm, DeleteForm
 from models import Note
-from datetime import datetime, date
+from datetime import datetime
 import sqlalchemy as sa
 import csv
 
+@app.route('/')
 @app.route('/home')
 def home():
     query = sa.select(Note)
@@ -62,4 +63,9 @@ def export():
             writer.writerow({"Date": datetime.strftime(item.date, '%Y-%m-%d'), "Title": item.title, "Symptoms": item.symptoms, "Notes": item.notes})
     file.close()
     return redirect(url_for('home'))
-    return render_template('date.html', title="Peri", events=events)
+
+@app.route('/delete')
+def delete_db():
+    db.session.query(Note).delete()
+    db.session.commit()
+    return redirect(url_for('home'))
