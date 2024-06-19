@@ -9,6 +9,7 @@ Peri is a simple period app where you can store notes about your cycle without w
 - On/Off button to toggle light and dark mode.
 - Export button to retrieve all data into a csv.
 - Delete button to delete all entries in calendar.
+- *NEW* Jump button to jump to specific month and year in the calendar.
 
 **How to run locally on your computer**: Activate your virtual environment with `source venv/bin/activate` and then use `run flask` in the folder where your app is located.
 
