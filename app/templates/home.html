@@ -48,17 +48,19 @@
                     }
                 },
                 toggleMode: {
-                    text: 'ON',
+                    text: '',
                     click: function (e) {
                         let toggle2 = document.querySelector('body');
                         if (JSON.parse(localStorage.getItem('toggle')) == "p-2 bg-dark text-light") {
                             let toggle = "p-2 bg-light text-dark";
                             localStorage.setItem('toggle', JSON.stringify(toggle));
                             toggle2.className = JSON.parse(localStorage.getItem('toggle'));
+                            e.target.textContent = "ON"
                         } else {
                             let toggle = "p-2 bg-dark text-light";
                             localStorage.setItem('toggle', JSON.stringify(toggle));
                             toggle2.className = JSON.parse(localStorage.getItem('toggle'));
+                            e.target.textContent = "OFF"
                         }
                     }
                 },
@@ -123,6 +125,12 @@
             today.style.borderColor = "#dd571c";
             mode.style.backgroundColor = "#dd571c";
             mode.style.borderColor = "#dd571c";
+            let toggle2 = document.querySelector('body');
+            if (JSON.parse(localStorage.getItem('toggle')) == "p-2 bg-dark text-light") {
+                mode.textContent = "OFF";
+            } else {
+                mode.textContent = "OFF";
+            }
             },
             dateClick: function(info) {
                 window.location.href= `/date/${info.dateStr}`;
