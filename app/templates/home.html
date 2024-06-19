@@ -42,17 +42,19 @@
                     }
                 },
                 jump: {
-                        text: 'Jump',
-                        click : function () {
-                            let date = prompt('Enter the date you would like to jump to in YYYY-MM format:');
-                                let calDate = date.split('-');
-                                if (calDate[0].length == 4 && calDate[1].length == 2 && 1 <= parseInt(calDate[1]) && parseInt(calDate[1]) <= 12
-                                && parseInt(calDate[0])) {
-                                    calendar.gotoDate(calDate[0] + calDate[1] + "01");
-                                } else {
-                                    alert("Invalid input");
+                    text: 'Jump',
+                    click: function () {
+                        let date = prompt('Enter the date you would like to jump to in YYYY-MM format:');
+                        if (date) {
+                            let calDate = date.split('-');
+                            if (calDate[0].length == 4 && calDate[1].length == 2 && 1 <= parseInt(calDate[1]) && parseInt(calDate[1]) <= 12
+                            && parseInt(calDate[0])) {
+                                calendar.gotoDate(calDate[0] + calDate[1] + "01");
+                            } else {
+                                alert("Invalid input");
                             }
                         }
+                    }
                 },
                 exportButton: {
                     text: 'EXP',
