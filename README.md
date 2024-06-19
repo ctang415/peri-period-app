@@ -14,13 +14,13 @@ Peri is a simple period app where you can store notes about your cycle without w
 
 ## What the application looks like:
 ![Screenshot of Home page in Light mode](https://imgur.com/bhjpGSJ.jpg)
-<p style="text-align: center;">View of Home page in Light mode</p>
+_View of Home page in Light mode_\
 Click on the calendar dates to view or create a note
 ![Screenshot of Home page in Dark mode](https://imgur.com/WLeJsjF.jpg)
-<p style="text-align: center;">View of Home page in Dark mode</p>
+_View of Home page in Dark mode_\
 Click on the `on` button to toggle from light to dark mode
 ![Screenshot of Note](https://imgur.com/0n47ZXQ.jpg)
-<p style="text-align: center;">View of Note creation, edit, and deletion</p>
+_View of Note creation, edit, and deletion_\
 Check, add, edit, or delete a note's information
 
 ### Other notes:
