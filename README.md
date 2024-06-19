@@ -14,16 +14,16 @@ Peri is a simple period app where you can store notes about your cycle without w
 
 ## What the application looks like:
 ![Screenshot of Home page in Light mode](https://imgur.com/bhjpGSJ.jpg)
-_View of Home page in Light mode_\
+<p style="text-align: center;">View of Home page in Light mode</p>
 Click on the calendar dates to view or create a note
 ![Screenshot of Home page in Dark mode](https://imgur.com/WLeJsjF.jpg)
-_View of Home page in Dark mode_\
+<p style="text-align: center;">View of Home page in Dark mode</p>
 Click on the `on` button to toggle from light to dark mode
 ![Screenshot of Note](https://imgur.com/0n47ZXQ.jpg)
-_View of Note creation, edit, and deletion_\
+<p style="text-align: center;">View of Note creation, edit, and deletion</p>
 Check, add, edit, or delete a note's information
 
 ### Other notes:
-Fullcalendarjs used as template for the calendar.
-Flask with Jinja templates used to handle front-end and routing.
-SQLLite used for the database through SQLAlchemy.
+- Fullcalendarjs used as template for the calendar.
+- Flask with Jinja templates used to handle front-end and routing.
+- SQLLite used for the database through SQLAlchemy.
