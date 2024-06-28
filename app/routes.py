@@ -5,6 +5,7 @@ from models import Note
 from datetime import datetime
 import sqlalchemy as sa
 import csv
+import requests
 
 @app.route('/')
 @app.route('/home')

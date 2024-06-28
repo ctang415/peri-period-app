@@ -2,6 +2,8 @@
 ## About Peri:
 Peri is a simple period app where you can store notes about your cycle without worrying about data privacy. All data is stored in your local SQL database and you can export the data into a csv or delete the data any time you want.
 
+![Gif of how the Application works](https://imgur.com/a/dI5aii8.gif)
+
 ## How it works:
 - Click on the calendar dates to post, edit, or delete your notes.
 - Navigate the calendar with the left and right arrows at the top.
@@ -9,9 +11,9 @@ Peri is a simple period app where you can store notes about your cycle without w
 - On/Off button to toggle light and dark mode.
 - Export button to retrieve all data into a csv.
 - Delete button to delete all entries in calendar.
-- *NEW* Jump button to jump to specific month and year in the calendar.
+- **NEW** Jump button to jump to specific month and year in the calendar.
 
-**How to run locally on your computer**: Activate your virtual environment with `source venv/bin/activate` and then use `run flask` in the folder where your app is located.
+**How to run locally on your computer**: Activate your virtual environment with `source venv/bin/activate` and then use `flask run` in the folder where your app is located.
 
 ## What the application looks like:
 ![Screenshot of Home page in Light mode](https://imgur.com/bhjpGSJ.jpg)
