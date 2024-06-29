@@ -20,15 +20,15 @@ Peri is a simple period app where you can store notes about your cycle without w
 ## What the application looks like:
 ![Screenshot of Home page in Light mode](https://imgur.com/bhjpGSJ.jpg)
 <p align="center"><i>View of Home page in Light mode</i></p>
-Click on the calendar dates to view or create a note
+<p align="center">Click on the calendar dates to view or create a note</p>
 
 ![Screenshot of Home page in Dark mode](https://imgur.com/WLeJsjF.jpg)
 <p align="center"><i>View of Home page in Dark mode</i></p>
-Click on the `on` button to toggle from light to dark mode
+<p align="center">Click on the `on` button to toggle from light to dark mode</p>
 
 ![Screenshot of Note](https://imgur.com/0n47ZXQ.jpg)
 <p align="center"><i>View of Note creation, edit, and deletion</i></p>
-Check, add, edit, or delete a note's information
+<p align="center">Check, add, edit, or delete a note's information</p>
 
 ### Other notes:
 - Fullcalendarjs used as template for the calendar.
