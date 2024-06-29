@@ -2,6 +2,8 @@
 ## About Peri:
 Peri is a simple period app where you can store notes about your cycle without worrying about data privacy. All data is stored in your local SQL database and you can export the data into a csv or delete the data any time you want.
 
+![](https://imgur.com/vcqH0Oi.jpg)
+
 ## How it works:
 - Click on the calendar dates to post, edit, or delete your notes.
 - Navigate the calendar with the left and right arrows at the top.
