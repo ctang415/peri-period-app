@@ -15,7 +15,11 @@ Peri is a simple period app where you can store notes about your cycle without w
 - Delete button to delete all entries in calendar.
 - **NEW** Jump button to jump to specific month and year in the calendar.
 
-**How to run locally on your computer**: Activate your virtual environment with `source venv/bin/activate` and then use `flask run` in the folder where your app is located.
+**How to run locally on your computer**: 
+1. Install `-m env venv` to create a virtual environment.
+2. Activate your virtual environment with `source venv/bin/activate`.
+2. Run `pip3 install -r requirements.txt` to install all of the required packages.
+3. Use `flask run` in the folder where your app is located.
 
 ## What the application looks like:
 ![Screenshot of Home page in Light mode](https://imgur.com/bhjpGSJ.jpg)
@@ -33,4 +37,4 @@ Peri is a simple period app where you can store notes about your cycle without w
 ### Other notes:
 - Fullcalendarjs used as template for the calendar.
 - Flask with Jinja templates used to handle front-end and routing.
-- SQLLite used for the database through SQLAlchemy.
+- SQLite used for the database through SQLAlchemy.
