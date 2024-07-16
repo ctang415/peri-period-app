@@ -66,7 +66,7 @@
                     }
                 },
                 toggleMode: {
-                    text: '',
+                    text: `${ JSON.parse(localStorage.getItem('toggle')) == "p-2 bg-dark text-light" ? "OFF" : "ON" }`,
                     click: function (e) {
                         let toggle2 = document.querySelector('body');
                         if (JSON.parse(localStorage.getItem('toggle')) == "p-2 bg-dark text-light") {
@@ -149,12 +149,6 @@
             mode.style.borderColor = "#dd571c";
             jump.style.backgroundColor = "#dd571c";
             jump.style.borderColor = "#dd571c";
-            let toggle2 = document.querySelector('body');
-            if (JSON.parse(localStorage.getItem('toggle')) == "p-2 bg-dark text-light") {
-                mode.textContent = "OFF";
-            } else {
-                mode.textContent = "OFF";
-            }
             },
             dateClick: function(info) {
                 window.location.href= `/date/${info.dateStr}`;
